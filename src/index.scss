@@ -317,14 +317,9 @@
   margin-left: 10px;
 }
 
-// Responsive
-
-// .block-left{
-//   flex: 1;
-// }
-// .block-right{
-//   flex: 1;
-// }
+.inline-block{
+  display: inline-block;
+}
 .block-center{
   display: inline-block;
   margin: 0 auto;
@@ -344,7 +339,9 @@
   margin: 0;
   padding: 0;
 }
-
+.padding-quantity{
+  padding: 0 15px;
+}
 
 
 

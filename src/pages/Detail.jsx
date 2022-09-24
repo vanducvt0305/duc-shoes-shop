@@ -117,16 +117,16 @@ export default function Detail() {
           <div className="btn-wrapper">{renderSize()}</div>
           <p className="text-danger my-3">{productDetail.price}$</p>
           <button
-            className="btnCong"
+            className="btnCong inline-block"
             onClick={() => {
               dispatch(inscreaseQuantity(productAddtoCart.quantity));
             }}
           >
             +
           </button>
-          {productAddtoCart.quantity}
+          <p className="inline-block padding-quantity">{productAddtoCart.quantity}</p>
           <button
-            className="btnTru"
+            className="btnTru inline-block"
             onClick={() => {
               dispatch(descreaseQuantity(productAddtoCart.quantity));
             }}
