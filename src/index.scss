@@ -473,10 +473,18 @@
 
 @media only screen and (max-width: 576px) {
   /* For mobile phones: */
+  .header{
+    height: 80px;
+  }
   .font-size{
     font-size: 15px;
   }
   .justify-content-around{
     justify-content: center;
   }
+}
+
+
+.flex-direction{
+  flex-direction: column;
 }
