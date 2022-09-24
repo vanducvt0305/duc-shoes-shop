@@ -36,6 +36,7 @@
   display: flex;
 }
 .btn-size{
+  padding: 1px 6px;
   border: 2px solid transparent;
 }
 .btn-choice{
@@ -378,6 +379,10 @@
   }
   .justify-content-around{
     justify-content: center;
+  }
+  .btn-size{
+    padding: 0 3px;
+    margin: 0 6px;
   }
 }
 @media only screen and (max-width: 768px) {
