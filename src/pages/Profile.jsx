@@ -57,13 +57,17 @@ export default function Profile() {
       <div className="container-fluid">
         <form
           onSubmit={handleSubmit}
-          className="row justify-content-around mt-5"
+          className="row justify-content-around mt-1 align-items-center"
         >
-          <div className="col-md-2 col-lg-2 d-flex ">
-            <img src="./assets/img/Profile.png" alt="..." />
+          <div className=" block-center col-6  col-sm-6 col-lg-4">
+            <img
+              className="block-center margin-top"
+              src="./assets/img/Profile.png"
+              alt="..."
+            />
           </div>
-          <div className="col-md-8 col-lg-8 col-xl-8  d-flex d-flex align-items-start justify-content-around">
-            <div className="from-group col-md col-lg col-xl col-sm">
+          <div className="col-10 col-sm-10 col-lg-8 d-flex d-flex align-items-start justify-content-around mt-3 row">
+            <div className="from-group col-sm-10 col-lg-6">
               <h3>Email</h3>
               <input
                 onChange={handleChange}
@@ -97,7 +101,7 @@ export default function Profile() {
                 ""
               )}
             </div>
-            <div className="from-group col-md col-lg col-xl">
+            <div className="from-group col-sm-10 col-lg-6">
               <h3>Name</h3>
               <input
                 onChange={handleChange}
@@ -129,7 +133,7 @@ export default function Profile() {
               ) : (
                 ""
               )}
-              <div className="from-group d-flex col-md col-lg col-xl col-sm-12">
+              <div className="from-group d-flex justify-content-between">
                 <div className="d-flex">
                   <div className="gender-text mt-5">Gender</div>
                   <div className="mx-3 align-sefl-center d-flex flex-column">
@@ -160,13 +164,14 @@ export default function Profile() {
                     )}
                   </div>
                 </div>
-
-                <button
-                  className="btn btn-update rounded-5 my-3 block-right"
-                  type="submit"
-                >
-                  Update
-                </button>
+                <div>
+                  <button
+                    className="btn btn-update rounded-5 my-3 block-right"
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                </div>
               </div>
             </div>
           </div>
