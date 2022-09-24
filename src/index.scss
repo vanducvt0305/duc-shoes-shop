@@ -10,137 +10,12 @@
 .menu {
   height: 50px;
 }
-// .footer {
-//   position: relative;
-//   box-sizing: border-box;
-//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-//   height: 211px;
-//   z-index: 1000;
-// }
 
-// .wrapper-gethelp::before {
-//   content: "";
-//   position: absolute;
-//   border-right: 2px solid #dedddc;
-//   height: 150px;
-//   right: 130px;
-//   top: 25px;
-// }
-// .gethelp-title {
-//   position: absolute;
-//   width: 180px;
-//   height: 29px;
-//   left: 13px;
-//   top: 28px;
-//   //   font-family: "Inter";
-//   //   font-style: normal;
-//   font-weight: 700;
-//   font-size: 20px;
-//   line-height: 24px;
-//   text-align: center;
-
-//   color: #000000;
-// }
-// .wrapper-gethelp-item {
-//   position: absolute;
-//   width: 180px;
-//   height: 102px;
-//   left: 56px;
-//   top: 63px;
-//   //   font-family: "Inter";
-//   //   font-style: normal;
-//   font-weight: 600;
-//   font-size: 16px;
-//   line-height: 19px;
-//   color: #000000;
-// }
-// .wrapper-support {
-//   position: absolute;
-//   width: 443px;
-//   height: 175px;
-//   left: 521px;
-//   top: 25px;
-// }
-// .wrapper-support::before {
-//   content: "";
-//   position: absolute;
-//   border-right: 2px solid #dedddc;
-//   height: 150px;
-//   right: 130px;
-//   top: 25px;
-// }
-// .support-title {
-//   position: absolute;
-//   width: 180px;
-//   height: 29px;
-//   left: 13px;
-//   top: 28px;
-//   //   font-family: "Inter";
-//   //   font-style: normal;
-//   font-weight: 700;
-//   font-size: 20px;
-//   line-height: 24px;
-//   text-align: center;
-//   color: #000000;
-// }
-// .wrapper-support-item {
-//   position: absolute;
-//   width: 180px;
-//   height: 102px;
-//   left: 56px;
-//   top: 63px;
-//   //   font-family: "Inter";
-//   //   font-style: normal;
-//   font-weight: 600;
-//   font-size: 16px;
-//   line-height: 19px;
-//   color: #000000;
-// }
-// .wrapper-register {
-//   position: absolute;
-//   width: 414px;
-//   height: 175px;
-//   left: 935px;
-//   top: 25px;
-// }
-// .register-title {
-//   position: absolute;
-//   width: 180px;
-//   height: 29px;
-//   left: 13px;
-//   top: 28px;
-//   //   font-family: "Inter";
-//   //   font-style: normal;
-//   font-weight: 700;
-//   font-size: 20px;
-//   line-height: 24px;
-//   text-align: center;
-//   color: #000000;
-// }
-// .wrapper-register-item {
-//   position: absolute;
-//   width: 180px;
-//   height: 102px;
-//   left: 56px;
-//   top: 63px;
-//   //   font-family: "Inter";
-//   //   font-style: normal;
-//   font-weight: 600;
-//   font-size: 16px;
-//   line-height: 19px;
-//   color: #000000;
-// }
 .cybersoft-footer {
   background: #d9d9d9;
   padding: 20px 0;
 }
-// .cybersoft-content {
-//   position: absolute;
-//   width: 1280px;
-//   height: 37px;
-//   left: 14px;
-//   top: 25px;
-// }
+
 .show-name {
   font-family: "Inter";
   font-style: normal;
@@ -473,11 +348,11 @@
 
 @media only screen and (max-width: 576px) {
   /* For mobile phones: */
-  .header{
-    height: 80px;
-  }
+  // .header{
+  //   height: 80px;
+  // }
   .font-size{
-    font-size: 15px;
+    font-size: 12px;
   }
   .justify-content-around{
     justify-content: center;

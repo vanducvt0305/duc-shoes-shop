@@ -34,7 +34,7 @@ export default function Header() {
           <div>
             <div className="d-flex justify-content-around mt-2 font-size">
                 <NavLink to={'./search'} className="mx-2 text-decoration-none text-light dis-play">
-                    <img src="../assets/img/search.png" alt="search" width={33} height={32}/>
+                    <img src="../assets/img/search.png" alt="search" width={25} height={25}/>
                     <span className='dis-play'>Search</span>
                 </NavLink>
                 <NavLink to={'./carts'} className="mx-2 text-decoration-none dis-play">
