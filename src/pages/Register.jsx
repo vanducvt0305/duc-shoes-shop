@@ -142,7 +142,7 @@ export default function Register() {
                   ""
                 )}
               </div>
-              <div className="row justify-content-center">
+              <div className="row justify-content-between clear-mp">
                 <div className="col-6">
                   <div className="d-flex">
                     <div className="gender-text mt-4">Gender</div>
@@ -176,7 +176,7 @@ export default function Register() {
                     ""
                   )}
                 </div>
-                <div className="col-6 test2">
+                <div className="col-6 clear-mp text-align-end">
                   <button className="btn btn-update rounded-5 col-sm-fix">SUBMIT</button>
                 </div>
               </div>

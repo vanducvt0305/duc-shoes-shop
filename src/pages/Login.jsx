@@ -37,7 +37,7 @@ export default function Login() {
     <div className="container">
       <div className="login">Login</div>
       <div className="row justify-content-center align-items-center">
-        <div className="col-lg-8 col-md-8 col-sm-8 col-10">
+        <div className="col-lg-6 col-md-8 col-sm-8 col-10">
           <form  onSubmit={handleSubmit} >
             <div  className="form-group">
               <h3>Email</h3>

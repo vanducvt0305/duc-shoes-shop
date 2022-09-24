@@ -232,6 +232,12 @@
   background-color: #6200ee;
   color: #fff;
   padding: 10px 30px;
+  text-align:end;
+  display: inline-block;
+  // margin-left: auto;
+}
+.text-align-end{
+  text-align: end;
 }
 .border-misstop {
   padding: 10px 30px;
@@ -341,10 +347,14 @@
 .inline-block{
   display: inline-block;
 }
-.test2{
-  display: inline-block;
-  margin-left: auto;
-  text-align:end;
+// .clear-md{
+//   display: inline-block;
+//   margin-left: auto;
+//   text-align:end;
+// }
+.clear-mp{
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -358,7 +368,7 @@
   .col-sm-fix{
     position: relative;
     top: 50px;
-    right: 80px;
+    right: 60px;
   }
   .font-size{
     font-size: 12px;
@@ -372,7 +382,7 @@
   .col-sm-fix{
     position: relative;
     top: 50px;
-    right: 80px;
+    right: 60px;
   }
 }
 
