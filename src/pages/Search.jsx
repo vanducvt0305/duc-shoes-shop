@@ -80,16 +80,17 @@ export default function DemoUseSearchParam(props) {
     }
   return (
     <form className="container" onSubmit={handleSubmit}>
-      <h3>Search</h3>
       <div className="form-group">
-        <p>Nhập từ khoá</p>
-        <div className="input-group-prepend">
+        <p>Search</p>
+        <div className="input-group-prepend d-flex">
           <input
+            style={{width:400,height:45}}
             className="form-control"
             id="keywordRef"
             onChange={handleChange}
+            placeholder="Product Name"
           />
-          <button className="btn bg-dark text-white">Search</button>
+          <button className="btn btn-search rounded-5">Search</button>
         </div>
       </div>
       <div className="mt-2">

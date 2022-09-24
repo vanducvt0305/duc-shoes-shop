@@ -86,7 +86,7 @@
   border: none;
   color: #fff;
   margin-left: 10px;
-  padding: 5px 12px;
+  padding: 5px 14px;
   background: linear-gradient(180deg, #6181f3 0%, #7c97f5 99.48%);
 }
 
@@ -121,15 +121,15 @@
 .margin-left {
   margin-left: 30px;
 }
+.marginBlock{
+  margin: 0 40px;
+}
 
 @media screen and (max-width: 960px) {
   .hide-info {
     display: none;
   }
   .img-full {
-    width: 100%;
-  }
-  .width-100 {
     width: 100%;
   }
   .flex-wrap {
@@ -140,11 +140,7 @@
     margin-bottom: -100px;
     margin-top: -100px;
   }
-  .margin-blockB {
-    margin-left: 0px;
-    padding: 0;
-    margin-top: 20px;
-  }
+
 }
 
 // Login
@@ -327,7 +323,14 @@
   flex-wrap: wrap;
 }
 
-
+.btn-search{
+  color: #fff;
+  background-color: #6200EE;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+  height: 45px;
+  padding: 0 30px;
+  margin-left: 10px;
+}
 
 // Responsive
 
@@ -385,7 +388,6 @@
     right: 60px;
   }
 }
-
 
 .flex-direction{
   flex-direction: column;

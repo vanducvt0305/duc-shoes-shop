@@ -97,9 +97,9 @@ export default function Detail() {
 
   return (
     <div className="container">
-      <div className="row flex-nowrap flex-wrap">
+      <div className="row flex-wrap marginBlock">
         <div
-          className="col-lg-5 col-md-5 width-100"
+          className="col-lg-6 col-md-6 width-100"
           style={{
             backgroundColor: "#F8F8F8",
           }}
@@ -110,12 +110,12 @@ export default function Detail() {
             className="w-100 margin-shoe"
           />
         </div>
-        <div className="col-lg-7 col-md-7 width-100 margin-blockB">
+        <div className="col-lg-6 col-md-6 col-12  margin-blockB">
           <span className="product-title">{productDetail.name}</span>
           <p>{productDetail.description}</p>
-          <span className="text-success">Available Size</span>
+          <p className="text-success my-3">Available Size</p>
           <div className="btn-wrapper">{renderSize()}</div>
-          <p className="text-danger">{productDetail.price}$</p>
+          <p className="text-danger my-3">{productDetail.price}$</p>
           <button
             className="btnCong"
             onClick={() => {
