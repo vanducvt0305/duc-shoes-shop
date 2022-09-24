@@ -7,23 +7,18 @@ export default function Header() {
   const navigate = useNavigate()
   const { arrProductAddtoCart } = useSelector((state) => state.productReducer);
 
+
   const renderLogout = ()=>{
-    if (getStore(ACCESS_TOKEN)) {
+    if (getStore(ACCESS_TOKEN)) {     
       return (<a href={'./login'} className="mx-2 text-decoration-none dis-play" onClick={()=>{
         localStorage.clear();
       }}>Log Out</a>)     
+      
     }else if(!getStore(ACCESS_TOKEN)){
-      return (<NavLink to={'./login'} className="mx-2 text-decoration-none dis-play-none">Log Out</NavLink>) 
+      return (<NavLink to={'./login'} className="mx-2 dis-play text-decoration-none ">Log In</NavLink>) 
     }
   }
 
-// const  renderCart = ()=>{
-//     if(arrProductAddtoCart?.length >0){
-//       return ((arrProductAddtoCart?.length))
-//     }else if(arrProductAddtoCart?.length === 0){
-//       return null
-//     }
-//   }
 
   return (
     <div className="header">
@@ -40,13 +35,12 @@ export default function Header() {
             <div className="d-flex justify-content-around mt-2 font-size">
                 <NavLink to={'./search'} className="mx-2 text-decoration-none text-light dis-play">
                     <img src="../assets/img/search.png" alt="search" width={33} height={32}/>
-                    <span>Search</span>
+                    <span className='dis-play'>Search</span>
                 </NavLink>
                 <NavLink to={'./carts'} className="mx-2 text-decoration-none dis-play">
                     <img src="../assets/img/cart.png" alt="cart" />
                     <div className='quantity-cart dis-play font-size'>[{arrProductAddtoCart?.length}]</div>
                 </NavLink>
-                <NavLink to={'./login'} className="mx-1 text-decoration-none  dis-play">Log in</NavLink>
                 <NavLink to={'./register'} className="mx-2 text-decoration-none  dis-play">Register</NavLink>
                 {renderLogout()}
             </div>
