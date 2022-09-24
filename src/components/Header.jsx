@@ -44,7 +44,7 @@ export default function Header() {
                 </NavLink>
                 <NavLink to={'./carts'} className="mx-2 text-decoration-none dis-play">
                     <img src="../assets/img/cart.png" alt="cart" />
-                    <span className='quantity-cart'>[{arrProductAddtoCart?.length}]</span>
+                    <div className='quantity-cart dis-play'>[{arrProductAddtoCart?.length}]</div>
                 </NavLink>
                 <NavLink to={'./login'} className="mx-1 text-decoration-none  dis-play">Log in</NavLink>
                 <NavLink to={'./register'} className="mx-2 text-decoration-none  dis-play">Register</NavLink>

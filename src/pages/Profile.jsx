@@ -12,9 +12,9 @@ export default function Profile() {
   const { userLogin } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getProfileApi());
-  },[])
+  }, []);
 
   const frm = useFormik({
     initialValues: {
@@ -50,125 +50,127 @@ export default function Profile() {
   }
   const { touched, errors, values, handleBlur, handleChange, handleSubmit } =
     frm;
-  
 
   return (
     <div>
       <div className="product-future text-white">Profile</div>
-      <div className="container">
+      <div className="container-fluid">
         <form
           onSubmit={handleSubmit}
-          className="row justify-content-around align-items-start mt-5"
+          className="row justify-content-around mt-5"
         >
-          <div className="col-2">
+          <div className="col-md-4 col-lg-4 d-flex justify-content-center">
             <img src="./assets/img/Profile.png" alt="..." />
           </div>
-          <div className="from-group col-4 ">
-            <h3>Email</h3>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-              className="form-control input-style"
-              id="email"
-              name="email"
-              type="email"
-              placeholder={userLogin?.email}
-            />
-            {errors.email && touched.email ? (
-              <span className="text-danger">{errors.email}</span>
-            ) : (
-              ""
-            )}
-            <h3>Phone</h3>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.phone}
-              className="form-control input-style"
-              id="phone"
-              name="phone"
-              type="text"
-              placeholder={userLogin?.phone}
-            />
-            {errors.phone && touched.phone ? (
-              <span className="text-danger">{errors.phone}</span>
-            ) : (
-              ""
-            )}
+          <div className="col-md-8 col-lg-8 d-flex d-flex align-items-center justify-content-around">
+            <div className="from-group col-md col-lg">
+              <h3>Email</h3>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                className="form-control input-style"
+                id="email"
+                name="email"
+                type="email"
+                placeholder={userLogin?.email}
+              />
+              {errors.email && touched.email ? (
+                <span className="text-danger">{errors.email}</span>
+              ) : (
+                ""
+              )}
+              <h3>Phone</h3>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.phone}
+                className="form-control input-style"
+                id="phone"
+                name="phone"
+                type="text"
+                placeholder={userLogin?.phone}
+              />
+              {errors.phone && touched.phone ? (
+                <span className="text-danger">{errors.phone}</span>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="from-group col-md col-lg">
+              <h3 >Name</h3>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.name}
+                className="form-control input-style"
+                id="name"
+                name="name"
+                type="text"
+                placeholder={userLogin?.name}
+              />
+              {errors.name && touched.name ? (
+                <span className="text-danger">{errors.name}</span>
+              ) : (
+                ""
+              )}
+              <h3>Password</h3>
+              <input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className="form-control input-style"
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password"
+              />
+              {errors.password && touched.password ? (
+                <span className="text-danger">{errors.password}</span>
+              ) : (
+                ""
+              )}
+            </div>
+            
           </div>
-          <div className="from-group col-4">
-            <h3>Name</h3>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.name}
-              className="form-control input-style"
-              id="name"
-              name="name"
-              type="text"
-              placeholder={userLogin?.name}
-            />
-            {errors.name && touched.name ? (
-              <span className="text-danger">{errors.name}</span>
-            ) : (
-              ""
-            )}
-            <h3>Password</h3>
-            <input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className="form-control input-style"
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-            {errors.password && touched.password ? (
-              <span className="text-danger">{errors.password}</span>
-            ) : (
-              ""
-            )}
-            <div className="my-4">
-              <div className="d-flex justify-content-between">
-                <div className="d-flex">
-                  <div className="gender-text mt-4">Gender</div>
-                  <div className="mx-3 align-sefl-center d-flex flex-column">
-                    <input
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      name="gender"
-                      type="radio"
-                      value="true"
-                    />
-                    <label htmlFor="gender">Male</label>
+          <div className="my-4">
+                <div className="d-flex justify-content-around">
+                  <div className="d-flex">
+                    <div className="gender-text mt-4">Gender</div>
+                    <div className="mx-3 align-sefl-center d-flex flex-column">
+                      <input
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="gender"
+                        type="radio"
+                        value="true"
+                      />
+                      <label htmlFor="gender">Male</label>
+                    </div>
+                    <div className="mx-3 d-flex flex-column">
+                      <input
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="gender"
+                        type="radio"
+                        value="false"
+                      />
+                      <label htmlFor="gender">Female</label>
+                    </div>
                   </div>
-                  <div className="mx-3 d-flex flex-column">
-                    <input
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      name="gender"
-                      type="radio"
-                      value="false"
-                    />
-                    <label htmlFor="gender">Female</label>
+                  <div>
+                    <button className="btn btn-update rounded-5" type="submit">
+                      Update
+                    </button>
                   </div>
                 </div>
                 <div>
-                  <button className="btn btn-update rounded-5" type="submit">
-                    Update
-                  </button>
+                  {errors.gender && touched.gender ? (
+                    <span className="text-danger">{errors.gender}</span>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
-              <div>
-                {errors.gender && touched.gender ? (
-                  <span className="text-danger">{errors.gender}</span>
-                ) : (
-                  ""
-                )}
-              </div>
-            </div>
-          </div>
         </form>
         <hr />
         <div className="d-flex">
@@ -181,7 +183,9 @@ export default function Profile() {
         {userLogin?.ordersHistory?.map((orderItem, index) => {
           return (
             <div className="mb-5" key={index}>
-              <span className="order-text">+ Orders have been placed on {orderItem.date}</span>
+              <span className="order-text">
+                + Orders have been placed on {orderItem.date}
+              </span>
               <h3>Order Detail</h3>
               <table className="table border-0">
                 <thead className="thead-color">

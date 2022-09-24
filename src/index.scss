@@ -338,10 +338,12 @@
   background: rgba(33, 33, 33, 0.08);
   border-radius: 4px 4px 0px 0px;
   margin: 6px 0;
+  width: 95%;
 }
 .gender-text {
   position: relative;
   top: -20px;
+  left: -23px;
 }
 .btn-update {
   background-color: #6200ee;
@@ -419,7 +421,7 @@
   display: none;
 }
 .dis-play{
-  display: block;
+  display: inline-block ;
   color: white;
 }
 
@@ -433,3 +435,17 @@
 .fontSize-4{
   font-size: 25px;
 }
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+
+
+// Responsive
+
+// .block-left{
+//   flex: 1;
+// }
+// .block-right{
+//   flex: 1;
+// }
