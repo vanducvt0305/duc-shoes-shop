@@ -59,11 +59,11 @@ export default function Profile() {
           onSubmit={handleSubmit}
           className="row justify-content-around mt-5"
         >
-          <div className="col-md-4 col-lg-4 d-flex justify-content-center">
+          <div className="col-md-2 col-lg-2 d-flex ">
             <img src="./assets/img/Profile.png" alt="..." />
           </div>
-          <div className="col-md-8 col-lg-8 col-xl-8 d-flex d-flex align-items-start justify-content-around">
-            <div className="from-group col-md col-lg col-xl">
+          <div className="col-md-8 col-lg-8 col-xl-8  d-flex d-flex align-items-start justify-content-around">
+            <div className="from-group col-md col-lg col-xl col-sm">
               <h3>Email</h3>
               <input
                 onChange={handleChange}
@@ -96,38 +96,6 @@ export default function Profile() {
               ) : (
                 ""
               )}
-              <div className="from-group col-md col-lg col-xl">
-                <div className="d-flex">
-                  <div className="gender-text mt-5">Gender</div>
-                  <div className="mx-3 align-sefl-center d-flex flex-column">
-                    <input
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      name="gender"
-                      type="radio"
-                      value="true"
-                    />
-                    <label htmlFor="gender">Male</label>
-                  </div>
-                  <div className="mx-3 d-flex flex-column">
-                    <input
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      name="gender"
-                      type="radio"
-                      value="false"
-                    />
-                    <label htmlFor="gender">Female</label>
-                  </div>
-                </div>
-                <div>
-                  {errors.gender && touched.gender ? (
-                    <span className="text-danger">{errors.gender}</span>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
             </div>
             <div className="from-group col-md col-lg col-xl">
               <h3>Name</h3>
@@ -156,14 +124,50 @@ export default function Profile() {
                 type="password"
                 placeholder="Password"
               />
-              <button className="btn btn-update rounded-5 my-3 block-right" type="submit">
-                  Update
-                </button>
               {errors.password && touched.password ? (
                 <span className="text-danger">{errors.password}</span>
               ) : (
                 ""
               )}
+              <div className="from-group d-flex col-md col-lg col-xl col-sm-12">
+                <div className="d-flex">
+                  <div className="gender-text mt-5">Gender</div>
+                  <div className="mx-3 align-sefl-center d-flex flex-column">
+                    <input
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      name="gender"
+                      type="radio"
+                      value="true"
+                    />
+                    <label htmlFor="gender">Male</label>
+                  </div>
+                  <div className="mx-3 d-flex flex-column">
+                    <input
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      name="gender"
+                      type="radio"
+                      value="false"
+                    />
+                    <label htmlFor="gender">Female</label>
+                  </div>
+                  <div>
+                    {errors.gender && touched.gender ? (
+                      <span className="text-danger">{errors.gender}</span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+
+                <button
+                  className="btn btn-update rounded-5 my-3 block-right"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </div>
             </div>
           </div>
         </form>
