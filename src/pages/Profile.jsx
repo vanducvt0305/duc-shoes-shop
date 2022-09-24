@@ -62,7 +62,7 @@ export default function Profile() {
           <div className=" block-center col-6  col-sm-6 col-lg-4">
             <img
               className="block-center margin-top"
-              src="./assets/img/Profile.png"
+              src="./assets/img/profile.png"
               alt="..."
             />
           </div>

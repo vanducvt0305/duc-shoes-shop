@@ -71,8 +71,6 @@ export const updateProfileApi = (values) => {
     try {
       const result = await http.post("/Users/updateProfile", values);
       alert("Bạn đã thay đổi thông tin thành công");
-      // const action = getProfileAction(result.data.content)
-      // dispatch(action)
     } catch (error) {
       console.log(error);
     }
