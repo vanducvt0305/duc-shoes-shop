@@ -62,8 +62,8 @@ export default function Profile() {
           <div className="col-md-4 col-lg-4 d-flex justify-content-center">
             <img src="./assets/img/Profile.png" alt="..." />
           </div>
-          <div className="col-md-8 col-lg-8 d-flex d-flex align-items-center justify-content-around">
-            <div className="from-group col-md col-lg">
+          <div className="col-md-8 col-lg-8 col-xl-8 d-flex d-flex align-items-center justify-content-around">
+            <div className="from-group col-md col-lg col-xl">
               <h3>Email</h3>
               <input
                 onChange={handleChange}
@@ -97,7 +97,7 @@ export default function Profile() {
                 ""
               )}
             </div>
-            <div className="from-group col-md col-lg">
+            <div className="from-group col-md col-lg col-xl">
               <h3 >Name</h3>
               <input
                 onChange={handleChange}
@@ -132,8 +132,8 @@ export default function Profile() {
             </div>
             
           </div>
-          <div className="my-4">
-                <div className="d-flex justify-content-around">
+          <div className="my-4 row">
+                <div className="d-flex flex-update justify-content-between col-md-8 col-lg-8 col-xl-8 ">
                   <div className="d-flex">
                     <div className="gender-text mt-4">Gender</div>
                     <div className="mx-3 align-sefl-center d-flex flex-column">

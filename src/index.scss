@@ -343,7 +343,10 @@
 .gender-text {
   position: relative;
   top: -20px;
-  left: -23px;
+}
+.flex-update{
+  // flex-direction: column-reverse;
+  margin-left: auto;
 }
 .btn-update {
   background-color: #6200ee;
