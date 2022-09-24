@@ -52,14 +52,14 @@ export default function Register() {
         onSubmit={handleSubmit}
         className="row justify-content-around align-items-start mt-5"
       >
-        <div className="from-group col-4 ">
+        <div className="from-group col-6 col-lg-4">
           <h3>Email</h3>
           <input
             style={{ height: "54px" }}
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
-            className="form-control input-style mb-3"
+            className="form-control input-style mb-3 w-100"
             id="email"
             name="email"
             type="email"
@@ -75,9 +75,7 @@ export default function Register() {
             style={{ height: "54px" }}
             onChange={handleChange}
             onBlur={handleBlur}
-            className="form-control input-style mb-3"
-            // value={values.password}
-            // id="password"
+            className="form-control input-style mb-3 w-100"
             name="password"
             type="password"
             placeholder="Password"
@@ -92,9 +90,7 @@ export default function Register() {
             style={{ height: "54px" }}
             onChange={handleChange}
             onBlur={handleBlur}
-            // value={values.changepassword}
-            className="form-control input-style mb-3"
-            // id="password-confirm"
+            className="form-control input-style mb-3 w-100"
             name="changepassword"
             type="password"
             placeholder="Password Confirm"
@@ -105,9 +101,9 @@ export default function Register() {
             ""
           )}
         </div>
-        <div className="from-group col-6">
+        <div className="from-group col-6 col-lg-4">
           <div className="row flex-direction">
-            <div className="col-8">
+            <div className="">
               <div>
                 <h3>Name</h3>
                 <input
@@ -115,7 +111,7 @@ export default function Register() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.name}
-                  className="form-control input-style mb-3"
+                  className="form-control input-style mb-3 w-100"
                   id="name"
                   name="name"
                   type="text"
@@ -134,7 +130,7 @@ export default function Register() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.phone}
-                  className="form-control input-style mb-3"
+                  className="form-control input-style mb-3 w-100"
                   id="phone"
                   name="phone"
                   type="text"
@@ -146,42 +142,43 @@ export default function Register() {
                   ""
                 )}
               </div>
-            </div>
-            <div className="my-4 col-8">
-              <div className="d-flex justify-content-between">
-                <div className="gender-text mt-4">Gender</div>
-                <div className="mx-3 align-sefl-center d-flex flex-column">
-                  <input
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    name="gender"
-                    type="radio"
-                    value="true"
-                  />
-                  <label htmlFor="gender">Male</label>
+              <div className="row justify-content-center">
+                <div className="col-6">
+                  <div className="d-flex">
+                    <div className="gender-text mt-4">Gender</div>
+                    <div className="mx-3 align-sefl-center d-flex flex-column">
+                      <input
+                        className="w-100"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="gender"
+                        type="radio"
+                        value="true"
+                      />
+                      <label htmlFor="gender">Male</label>
+                    </div>
+                    <div className="mx-3 d-flex flex-column">
+                      <input
+                        className="w-100"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="gender"
+                        type="radio"
+                        value="false"
+                      />
+                      <label htmlFor="gender">Female</label>
+                    </div>
+                  </div>
+
+                  {errors.gender && touched.gender ? (
+                    <span className="text-danger">{errors.gender}</span>
+                  ) : (
+                    ""
+                  )}
                 </div>
-                <div className="mx-3 d-flex flex-column">
-                  <input
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    name="gender"
-                    type="radio"
-                    value="false"
-                  />
-                  <label htmlFor="gender">Female</label>
+                <div className="col-6 test2">
+                  <button className="btn btn-update rounded-5 col-sm-fix">SUBMIT</button>
                 </div>
-                <div>
-                  <button className="btn btn-update rounded-5" type="submit">
-                    SUBMIT
-                  </button>
-                </div>
-              </div>
-              <div>
-                {errors.gender && touched.gender ? (
-                  <span className="text-danger">{errors.gender}</span>
-                ) : (
-                  ""
-                )}
               </div>
             </div>
           </div>

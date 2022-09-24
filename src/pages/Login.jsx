@@ -37,13 +37,13 @@ export default function Login() {
     <div className="container">
       <div className="login">Login</div>
       <div className="row justify-content-center align-items-center">
-        <div className="col-lg-4 col-md-5 col-sm-8 col-xl-4 col-8">
+        <div className="col-lg-8 col-md-8 col-sm-8 col-10">
           <form  onSubmit={handleSubmit} >
             <div  className="form-group">
               <h3>Email</h3>
               <input
                 type="text"
-                className="form-control p-2 my-2 input-style"
+                className="form-control p-2 my-2 input-style w-100"
                 placeholder="Email"
                 id="email"
                 name="email"
@@ -60,7 +60,7 @@ export default function Login() {
             <div className="form-group">
               <h3>Password</h3>
               <input
-                className="form-control p-2 my-2 input-style"
+                className="form-control p-2 my-2 input-style w-100"
                 type="text"
                 id="password"
                 name="password"
@@ -78,7 +78,7 @@ export default function Login() {
             </div>
             <div className="d-flex justify-content-end form-group">
               <a className="register-text" href="/register">
-                Register Now ?
+                Register Now?
               </a>
               <button
                 className="btn btn-primary login-text rounded-5"
