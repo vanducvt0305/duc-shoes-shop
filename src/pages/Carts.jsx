@@ -35,19 +35,19 @@ export default function Carts() {
   const renderCart = () => {
     return arrProductAddtoCart?.map((item, index) => {
       return (
-        <tr className="text-center" key={index}>
+        <tr className="text-center my-3" key={index}>
           <td>{item.id}</td>
           <td>
             <img src={item.image} alt={item.name} width={50} />
           </td>
           <td>{item.name}</td>
           <td>{item.price}</td>
-          <td className="text-center">
+          <td className="text-center inline-block">
             <button className="btn-cart text-white" onClick={()=>{
               dispatch(increaseBtnArr(index))
             }}>+</button>
-            <span className="quantity-color px-5 py-1">{item.quantity}</span>
-            <button className="btn-cart text-white" onClick={()=>{
+            <span className="quantity-color px-5 pd5 py-1 inline-block">{item.quantity}</span>
+            <button className="btn-cart text-white inline-block" onClick={()=>{
               dispatch(decreaseBtnArr(index))
             }}>-</button>
           </td>

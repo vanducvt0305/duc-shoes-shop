@@ -348,11 +348,11 @@
   // flex-direction: column-reverse;
   margin-left: auto;
 }
-.block-right{
-  display: block;
-  margin-left: auto;
-  margin-right: 23px;
-}
+// .block-right{
+//   display: block;
+//   margin-left: auto;
+//   margin-right: 23px;
+// }
 .btn-update {
   background-color: #6200ee;
   color: #fff;
@@ -464,7 +464,9 @@
 .margin-top{
   margin-top: -4px;
 }
-
+.inline-block{
+  display: inline-block;
+}
 
 
 
@@ -473,5 +475,8 @@
   /* For mobile phones: */
   .font-size{
     font-size: 15px;
+  }
+  .justify-content-around{
+    justify-content: center;
   }
 }

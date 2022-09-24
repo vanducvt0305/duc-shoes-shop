@@ -51,7 +51,7 @@ export default function Register() {
         onSubmit={handleSubmit}
         className="row justify-content-around align-items-start mt-5"
       >
-        <div className="from-group col-4 ">
+        <div className="from-group col-5 ">
           <h3>Email</h3>
           <input
             style={{ height: "54px" }}
@@ -105,7 +105,7 @@ export default function Register() {
           )}
           
         </div>
-        <div className="from-group col-4">
+        <div className="from-group col-5">
           <h3>Name</h3>
           <input
             style={{ height: "54px" }}
