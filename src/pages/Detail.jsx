@@ -39,7 +39,7 @@ export default function Detail() {
             e.target.className = "btn-choice btn-size";
             dispatch(handleSize(size));
           }}
-          style={{ marginRight: "12px" }}
+          style={{ marginRight: "5px" }}
           className="btn-size"
           key={size}
         >
