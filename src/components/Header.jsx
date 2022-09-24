@@ -37,14 +37,14 @@ export default function Header() {
             </a>
           </div>
           <div>
-            <div className="d-flex justify-content-around mt-2">
+            <div className="d-flex justify-content-around mt-2 font-size">
                 <NavLink to={'./search'} className="mx-2 text-decoration-none text-light dis-play">
                     <img src="../assets/img/search.png" alt="search" width={33} height={32}/>
                     <span>Search</span>
                 </NavLink>
                 <NavLink to={'./carts'} className="mx-2 text-decoration-none dis-play">
                     <img src="../assets/img/cart.png" alt="cart" />
-                    <div className='quantity-cart dis-play'>[{arrProductAddtoCart?.length}]</div>
+                    <div className='quantity-cart dis-play font-size'>[{arrProductAddtoCart?.length}]</div>
                 </NavLink>
                 <NavLink to={'./login'} className="mx-1 text-decoration-none  dis-play">Log in</NavLink>
                 <NavLink to={'./register'} className="mx-2 text-decoration-none  dis-play">Register</NavLink>

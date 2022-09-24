@@ -464,3 +464,14 @@
 .margin-top{
   margin-top: -4px;
 }
+
+
+
+
+
+@media only screen and (max-width: 576px) {
+  /* For mobile phones: */
+  .font-size{
+    font-size: 15px;
+  }
+}
