@@ -184,3 +184,16 @@ export const orderApi = createAsyncThunk(
     return response.data;
   }
 );
+
+
+// export const deleteOrderApi = (orderId)=>{
+//   return async (dispatch)=>{
+//     try {
+//       const result = await http.post('/Users/deleteOrder', orderId)
+//       console.log(result)
+//       console.log('Xoá Order Try');
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   }
+// }

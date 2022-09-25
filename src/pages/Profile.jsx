@@ -7,6 +7,7 @@ import { getProfileApi } from "../redux/reducers/userReducer";
 import { updateProfileApi } from "../redux/reducers/userReducer";
 import { Navigate } from "react-router-dom";
 import { ACCESS_TOKEN, getStore } from "../util/tools";
+import { deleteOrderApi } from "../redux/reducers/productReducer";
 
 export default function Profile() {
   const { userLogin } = useSelector((state) => state.userReducer);
@@ -42,9 +43,7 @@ export default function Profile() {
 
     onSubmit: (values) => {
       // const action = loginApi(values);
-      let {password} = values;
       dispatch(updateProfileApi(values));
-      console.log(password)
     },
   });
   if (!getStore(ACCESS_TOKEN)) {
@@ -203,6 +202,7 @@ export default function Profile() {
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
+                    {/* <th>Action</th> */}
                   </tr>
                 </thead>
                 <tbody className="">
@@ -223,6 +223,11 @@ export default function Profile() {
                         <td>{item.price}</td>
                         <td>{item.quantity}</td>
                         <td>{item.quantity * item.price}</td>
+                        {/* <td>
+                          <button onClick={()=>{
+                            dispatch(deleteOrderApi(userLogin?.ordersHistory?.id))
+                          }}>Delete Order</button>
+                        </td> */}
                       </tr>
                     );
                   })}
