@@ -10,6 +10,7 @@ import { ACCESS_TOKEN, getStore } from "../util/tools";
 
 export default function Profile() {
   const { userLogin } = useSelector((state) => state.userReducer);
+  // const {newPassword} =useSelector(state=>state.userReducer)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,7 +42,9 @@ export default function Profile() {
 
     onSubmit: (values) => {
       // const action = loginApi(values);
+      let {password} = values;
       dispatch(updateProfileApi(values));
+      console.log(password)
     },
   });
   if (!getStore(ACCESS_TOKEN)) {

@@ -100,6 +100,9 @@ const productReducer = createSlice({
       let index = action.payload;
       state.arrProductAddtoCart.splice(index, 1);
       setStoreJson(CART, state.arrProductAddtoCart);
+      if(state.arrProductAddtoCart.length ===0){
+        localStorage.removeItem("cart");
+      }
     },
   },
   extraReducers: (builder) => {

@@ -4,7 +4,6 @@ import userReducer, { getProfileApi } from "../redux/reducers/userReducer";
 import productReducer, {
   decreaseBtnArr,
   deleteOrder,
-  fetchUserById,
   handleSize,
   orderApi,
 } from "../redux/reducers/productReducer";
@@ -71,8 +70,12 @@ export default function Carts() {
   };
 
   const handleSubmit = () => {
+    if(!orderDetail){
+      alert('Bạn không có sản phẩm nào để Order !!')
+    }else{
+      dispatch(orderApi(carts));
+    }
     
-    dispatch(orderApi(carts));
   };
 
   return (

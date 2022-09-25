@@ -128,6 +128,9 @@ export default function Detail() {
           <button
             className="btnTru inline-block"
             onClick={() => {
+              if(productAddtoCart.quantity ===1){
+                productAddtoCart.quantity =1
+              }
               dispatch(descreaseQuantity(productAddtoCart.quantity));
             }}
           >

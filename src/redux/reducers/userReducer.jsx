@@ -68,14 +68,29 @@ export const getProfileApi = () => {
 
 export const updateProfileApi = (values) => {
   return async (dispatch) => {
+    let {password} = values;
     try {
       const result = await http.post("/Users/updateProfile", values);
+      dispatch(changePassApi(password))
       alert("Bạn đã thay đổi thông tin thành công");
     } catch (error) {
       console.log(error);
     }
   };
 };
+
+export const changePassApi = (password)=>{
+  return async (dispatch) =>{
+    try {
+      console.log(password);
+      const result = await http.post("/Users/changePassword", password);
+      console.log(result.content);
+    } catch (error) {
+      console.log(password);
+      console.log(error);
+    }
+  }
+}
 
 export const registerProfileApi = (values) => {
   return async (dispatch) => {
@@ -89,3 +104,4 @@ export const registerProfileApi = (values) => {
     }
   };
 };
+
