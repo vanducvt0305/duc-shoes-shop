@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginApi } from "../redux/reducers/userReducer";
 import { ACCESS_TOKEN, getStore } from "../util/tools";
 import { Navigate } from "react-router-dom";
@@ -9,9 +9,12 @@ import LoginFaceBook from "../components/LoginFaceBook";
 import { Button } from "react-bootstrap";
 import FacebookLogin from 'react-facebook-login';
 import { FACEBOOK_TOKEN, http, setStore, USER_LOGIN } from "../util/tools";
+import userReducer from "../redux/reducers/userReducer";
+
 
 export default function Login() {
   const dispatch = useDispatch();
+  const {facebookToken} = useSelector(state=>state.userReducer)
   const frm = useFormik({
     initialValues: {
       // Dữ liệu ban đầu mặc định của form
@@ -33,17 +36,7 @@ export default function Login() {
       dispatch(loginApi(values));
     },
   });
-  const responseFacebook =async (response)=>{
-    console.log(response.accessToken)
-    setStore(FACEBOOK_TOKEN,response.accessToken)
-    try {
-      const result = await http.post('/Users/facebooklogin',response.accessToken);
-      setStore(USER_LOGIN,result.data.content)
-      console.log(result.data.content)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  
   const { touched, errors, values, handleBlur, handleChange, handleSubmit } =
     frm;
   if (getStore(ACCESS_TOKEN) !== null) {
@@ -108,7 +101,9 @@ export default function Login() {
             href="https://www.facebook.com/"
           >
             <i className="fa-brands fa-facebook"></i>
-            <button className="facebook-text">
+            <button className="facebook-text" onClick={()=>{
+              dispatch(LoginFacebookApi(facebookToken))
+            }}>
               <FacebookLogin
                 appId="526234602835316"
                 autoLoad={true}

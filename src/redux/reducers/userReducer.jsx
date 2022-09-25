@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import {
   ACCESS_TOKEN,
+  FACEBOOK_TOKEN,
   getStore,
   getStoreJson,
   http,
@@ -15,7 +16,7 @@ import { Navigate } from "react-router-dom";
 
 const initialState = {
   userLogin: getStoreJson(USER_LOGIN), // có thể null hoặc object
-  facebookToken:getStore('facebookToken')
+  facebookToken:getStore(FACEBOOK_TOKEN)
 };
 const userReducer = createSlice({
   name: "userReducer",
@@ -106,3 +107,13 @@ export const registerProfileApi = (values) => {
   };
 };
 
+export const LoginFacebookApi = (FACEBOOK_TOKEN)=>{
+  return async (dispatch)=>{
+    try {
+      const result = await http.post('/Users/facebooklogin',FACEBOOK_TOKEN)
+      console.log(result.data.content)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
