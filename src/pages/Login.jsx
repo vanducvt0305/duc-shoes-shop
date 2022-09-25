@@ -97,7 +97,7 @@ export default function Login() {
               </button>
             </div>
           </form>
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center my-3">
             <FacebookLogin
               appId="526234602835316"
               autoLoad={true}
