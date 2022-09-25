@@ -63,32 +63,32 @@ export const getProfileApi = () => {
       dispatch(action);
       setStoreJson(USER_LOGIN, result.data.content);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 };
 
 export const updateProfileApi = (values) => {
   return async (dispatch) => {
-    let { password } = values;
     try {
+      let newPassword = {
+        newPassword: values.password,
+      };
       const result = await http.post("/Users/updateProfile", values);
-      dispatch(changePassApi(password));
       alert("Bạn đã thay đổi thông tin thành công");
+      dispatch(changePassApi(newPassword));
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const changePassApi = (password) => {
+export const changePassApi = (newPassword) => {
   return async (dispatch) => {
     try {
-      console.log(password);
-      const result = await http.post("/Users/changePassword", password);
-      console.log(result.content);
+      const result = await http.post("/Users/changePassword", newPassword);
+      console.log(result);
     } catch (error) {
-      console.log(password);
       console.log(error);
     }
   };
@@ -101,6 +101,7 @@ export const registerProfileApi = (values) => {
       // console.log(result);
       alert("Đăng kí thành công! Mời bạn đăng nhập");
       history.push("/login");
+      console.log(result)
     } catch (error) {}
   };
 };

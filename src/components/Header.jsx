@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ACCESS_TOKEN, getStore } from "../util/tools";
+import { history } from '../index';
 
 export default function Header() {
   const navigate = useNavigate()
@@ -10,9 +11,9 @@ export default function Header() {
 
   const renderLogout = ()=>{
     if (getStore(ACCESS_TOKEN)) {     
-      return (<a href={'./login'} className="mx-2 text-decoration-none dis-play" onClick={()=>{
+      return (<NavLink to={'./login'} className="mx-2 text-decoration-none dis-play" onClick={()=>{
         localStorage.clear();
-      }}>Log Out</a>)     
+      }}>Log Out</NavLink>)     
       
     }else if(!getStore(ACCESS_TOKEN)){
       return (<NavLink to={'./login'} className="mx-2 dis-play text-decoration-none ">Log In</NavLink>) 

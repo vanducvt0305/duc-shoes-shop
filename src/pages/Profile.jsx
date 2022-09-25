@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import userReducer from "../redux/reducers/userReducer";
+import userReducer, { changePassApi } from "../redux/reducers/userReducer";
 import * as Yup from "yup";
 import { getProfileApi } from "../redux/reducers/userReducer";
 import { updateProfileApi } from "../redux/reducers/userReducer";
@@ -16,7 +16,7 @@ export default function Profile() {
 
   useEffect(() => {
     dispatch(getProfileApi());
-  }, []);
+  }, [userLogin]);
 
   const frm = useFormik({
     initialValues: {
@@ -42,7 +42,6 @@ export default function Profile() {
     }),
 
     onSubmit: (values) => {
-      // const action = loginApi(values);
       dispatch(updateProfileApi(values));
     },
   });
@@ -202,7 +201,7 @@ export default function Profile() {
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                    {/* <th>Action</th> */}
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody className="">
@@ -223,12 +222,17 @@ export default function Profile() {
                         <td>{item.price}</td>
                         <td>{item.quantity}</td>
                         <td>{item.quantity * item.price}</td>
-                        {/* <td>
-                          <button onClick={()=>{
-                         
-                            dispatch(deleteOrderApi(orderItem?.id))
-                          }}>Delete Order</button>
-                        </td> */}
+                        <td>
+                          <button
+                            className="btn btn-danger"
+                            onClick={() => {
+                              let orderid = { orderId: orderItem?.id };
+                              dispatch(deleteOrderApi(orderid));
+                            }}
+                          >
+                            Delete Order
+                          </button>
+                        </td>
                       </tr>
                     );
                   })}

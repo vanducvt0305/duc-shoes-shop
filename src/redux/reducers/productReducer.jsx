@@ -187,16 +187,15 @@ export const orderApi = createAsyncThunk(
   }
 );
 
-// export const deleteOrderApi =(orderId)=>{
-//   // let id = orderId.payload
-//   // console.log(id)
+export const deleteOrderApi =(orderId)=>{
 
-//   return async (dispatch)=>{
-//     try {
-//       const result = await http.post('/Users/deleteOrder',orderId)
-//       console.log(result)
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-// }
+  return async (dispatch)=>{
+
+    try {
+      const result = await http.post('/Users/deleteorder',orderId);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
