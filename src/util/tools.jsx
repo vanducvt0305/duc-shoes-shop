@@ -45,7 +45,7 @@ export const config = {
   USER_LOGIN: "userLogin",
   CART: "cart",
   ORDER_DETAIL: "orderDetail",
-  FACEBOOK_TOKEN: "facebookToken",
+  // FACEBOOK_TOKEN: "facebookToken",
 };
 
 export const {

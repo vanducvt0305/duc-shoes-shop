@@ -102,6 +102,8 @@ const productReducer = createSlice({
       setStoreJson(CART, state.arrProductAddtoCart);
       if(state.arrProductAddtoCart.length ===0){
         localStorage.removeItem("cart");
+        localStorage.removeItem('orderDetail')
+        window.location.reload()
       }
     },
   },
@@ -185,13 +187,14 @@ export const orderApi = createAsyncThunk(
   }
 );
 
+// export const deleteOrderApi =(orderId)=>{
+//   // let id = orderId.payload
+//   // console.log(id)
 
-// export const deleteOrderApi = (orderId)=>{
 //   return async (dispatch)=>{
 //     try {
-//       const result = await http.post('/Users/deleteOrder', orderId)
+//       const result = await http.post('/Users/deleteOrder',orderId)
 //       console.log(result)
-//       console.log('Xoá Order Try');
 //     } catch (error) {
 //       console.log(error)
 //     }

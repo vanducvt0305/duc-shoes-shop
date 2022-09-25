@@ -225,7 +225,8 @@ export default function Profile() {
                         <td>{item.quantity * item.price}</td>
                         {/* <td>
                           <button onClick={()=>{
-                            dispatch(deleteOrderApi(userLogin?.ordersHistory?.id))
+                         
+                            dispatch(deleteOrderApi(orderItem?.id))
                           }}>Delete Order</button>
                         </td> */}
                       </tr>
