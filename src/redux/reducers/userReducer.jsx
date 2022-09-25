@@ -115,9 +115,9 @@ export const LoginFacebookApi = (facebookToken) => {
           facebookToken: facebookToken,
         },
       });
-      setStore(ACCESS_TOKEN, result.data.content.accessToken);
-      alert('Bạn đã đăng nhập qua FaceBook Thành Công !!')
+      setStore(ACCESS_TOKEN, result.data.content.accessToken);     
       history.push('/profile');
+      alert('Bạn đã đăng nhập qua FaceBook Thành Công !!')
     } catch (error) {
       console.log(error);
     }
