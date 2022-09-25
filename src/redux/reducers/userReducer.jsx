@@ -110,7 +110,7 @@ export const registerProfileApi = (values) => {
 export const LoginFacebookApi = (FACEBOOK_TOKEN)=>{
   return async (dispatch)=>{
     try {
-      const result = await http.post('/Users/facebooklogin',FACEBOOK_TOKEN)
+      const result = await http.post('/Users/facebooklogin',JSON.stringify(FACEBOOK_TOKEN))
       console.log(result.data.content)
       history.push("/login")
 
