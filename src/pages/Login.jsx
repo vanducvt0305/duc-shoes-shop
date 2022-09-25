@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { loginApi } from "../redux/reducers/userReducer";
+import { loginApi, LoginFacebookApi } from "../redux/reducers/userReducer";
 import { ACCESS_TOKEN, getStore } from "../util/tools";
 import { Navigate } from "react-router-dom";
 import LoginFaceBook from "../components/LoginFaceBook";
@@ -36,7 +36,17 @@ export default function Login() {
       dispatch(loginApi(values));
     },
   });
-  
+  const responseFacebook =async (response)=>{
+    console.log(response.accessToken)
+    setStore(FACEBOOK_TOKEN,response.accessToken)
+    try {
+      const result = await http.post('/Users/facebooklogin',response.accessToken);
+      setStore(USER_LOGIN,result.data.content)
+      console.log(result.data.content)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   const { touched, errors, values, handleBlur, handleChange, handleSubmit } =
     frm;
   if (getStore(ACCESS_TOKEN) !== null) {
