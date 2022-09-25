@@ -39,13 +39,7 @@ export default function Login() {
   const responseFacebook =async (response)=>{
     console.log(response.accessToken)
     setStore(FACEBOOK_TOKEN,response.accessToken)
-    try {
-      const result = await http.post('/Users/facebooklogin',response.accessToken);
-      setStore(USER_LOGIN,result.data.content)
-      console.log(result.data.content)
-    } catch (error) {
-      console.log(error)
-    }
+    dispatch(LoginFacebookApi(facebookToken))
   }
   const { touched, errors, values, handleBlur, handleChange, handleSubmit } =
     frm;

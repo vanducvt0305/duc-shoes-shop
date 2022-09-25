@@ -112,6 +112,8 @@ export const LoginFacebookApi = (FACEBOOK_TOKEN)=>{
     try {
       const result = await http.post('/Users/facebooklogin',FACEBOOK_TOKEN)
       console.log(result.data.content)
+      history.push("/login")
+
     } catch (error) {
       console.log(error)
     }
