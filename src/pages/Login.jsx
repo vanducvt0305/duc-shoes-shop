@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,14 +7,14 @@ import { ACCESS_TOKEN, getStore } from "../util/tools";
 import { Navigate } from "react-router-dom";
 import LoginFaceBook from "../components/LoginFaceBook";
 import { Button } from "react-bootstrap";
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from "react-facebook-login";
 import { FACEBOOK_TOKEN, http, setStore, USER_LOGIN } from "../util/tools";
 import userReducer from "../redux/reducers/userReducer";
-
+import axios from "axios";
 
 export default function Login() {
+  const [response,setResponse] = useState({})
   const dispatch = useDispatch();
-  const {facebookToken} = useSelector(state=>state.userReducer)
   const frm = useFormik({
     initialValues: {
       // Dữ liệu ban đầu mặc định của form
@@ -31,21 +31,18 @@ export default function Login() {
     }),
 
     onSubmit: (values) => {
-      console.log({ values });
-      // const action = loginApi(values);
       dispatch(loginApi(values));
     },
   });
-  const responseFacebook =async (response)=>{
-    console.log(response.accessToken)
-    setStore(FACEBOOK_TOKEN,response.accessToken)
-    dispatch(LoginFacebookApi(facebookToken))
-  }
+
   const { touched, errors, values, handleBlur, handleChange, handleSubmit } =
     frm;
-  if (getStore(ACCESS_TOKEN) !== null) {
-    return <Navigate to="/" />;
-  }
+  // if (getStore(ACCESS_TOKEN) !== null) {
+  //   return <Navigate to="/" />;
+  // }
+  const responseFacebook = async (response) => {
+    setResponse(response)
+  };
   return (
     <div className="container">
       <div className="login">Login</div>
@@ -100,23 +97,17 @@ export default function Login() {
               </button>
             </div>
           </form>
-          <a
-            className="d-flex justify-content-center my-4 facebook-block"
-            href="https://www.facebook.com/"
-          >
-            <i className="fa-brands fa-facebook"></i>
-            <button className="facebook-text" onClick={()=>{
-              dispatch(LoginFacebookApi(facebookToken))
-            }}>
-              <FacebookLogin
-                appId="526234602835316"
-                autoLoad={true}
-                fields="name,email,picture"
-                // onClick={componentClicked}
-                callback={responseFacebook}
-              />
-            </button>
-          </a>
+          <div className="d-flex justify-content-center">
+            <FacebookLogin
+              appId="526234602835316"
+              autoLoad={true}
+              fields="name,email,picture"
+              onClick={()=>{
+                dispatch(LoginFacebookApi(response.accessToken));
+              }}
+              callback={responseFacebook}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/configStore";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import {createBrowserHistory} from 'history';
+import LoginFaceBook from "./components/LoginFaceBook";
 
 export const history = createBrowserHistory({ window });
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -37,6 +38,7 @@ root.render(
         <Route path="/carts" element={<Carts />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/loginfacebook" element={<LoginFaceBook />}></Route>
       </Routes>
       <Footer />
     </HistoryRouter>

@@ -12,7 +12,6 @@ import { handleSize } from "../redux/reducers/productReducer";
 import { cloneProductAction } from "../redux/reducers/productReducer";
 
 export default function Detail() {
-  // const [quantity,setQuantity] = useState(1)
   const { productDetail } = useSelector((state) => state.productReducer);
   const { productAddtoCart } = useSelector((state) => state.productReducer);
   const params = useParams();

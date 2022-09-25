@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import {
   ACCESS_TOKEN,
-  FACEBOOK_TOKEN,
+  // FACEBOOK_TOKEN,
   getStore,
   getStoreJson,
   http,
@@ -16,7 +16,7 @@ import { Navigate } from "react-router-dom";
 
 const initialState = {
   userLogin: getStoreJson(USER_LOGIN), // có thể null hoặc object
-  facebookToken:getStore(FACEBOOK_TOKEN)
+  // facebookToken:getStore(FACEBOOK_TOKEN)
 };
 const userReducer = createSlice({
   name: "userReducer",
@@ -70,10 +70,10 @@ export const getProfileApi = () => {
 
 export const updateProfileApi = (values) => {
   return async (dispatch) => {
-    let {password} = values;
+    let { password } = values;
     try {
       const result = await http.post("/Users/updateProfile", values);
-      dispatch(changePassApi(password))
+      dispatch(changePassApi(password));
       alert("Bạn đã thay đổi thông tin thành công");
     } catch (error) {
       console.log(error);
@@ -81,8 +81,8 @@ export const updateProfileApi = (values) => {
   };
 };
 
-export const changePassApi = (password)=>{
-  return async (dispatch) =>{
+export const changePassApi = (password) => {
+  return async (dispatch) => {
     try {
       console.log(password);
       const result = await http.post("/Users/changePassword", password);
@@ -91,8 +91,8 @@ export const changePassApi = (password)=>{
       console.log(password);
       console.log(error);
     }
-  }
-}
+  };
+};
 
 export const registerProfileApi = (values) => {
   return async (dispatch) => {
@@ -101,21 +101,25 @@ export const registerProfileApi = (values) => {
       // console.log(result);
       alert("Đăng kí thành công! Mời bạn đăng nhập");
       history.push("/login");
-    } catch (error) {
-
-    }
+    } catch (error) {}
   };
 };
 
-export const LoginFacebookApi = (FACEBOOK_TOKEN)=>{
-  return async (dispatch)=>{
+export const LoginFacebookApi = (facebookToken) => {
+  return async (dispatch) => {
     try {
-      const result = await http.post('/Users/facebooklogin',JSON.stringify(FACEBOOK_TOKEN))
-      console.log(result.data.content)
-      history.push("/login")
-
+      const result = await axios({
+        url: "https://shop.cyberlearn.vn/api/Users/facebooklogin",
+        method: "post",
+        data: {
+          facebookToken: facebookToken,
+        },
+      });
+      setStore(ACCESS_TOKEN, result.data.content.accessToken);
+      alert('Bạn đã đăng nhập qua FaceBook Thành Công !!')
+      history.push('/profile');
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};
