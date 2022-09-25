@@ -7,7 +7,8 @@ import { ACCESS_TOKEN, getStore } from "../util/tools";
 import { Navigate } from "react-router-dom";
 import LoginFaceBook from "../components/LoginFaceBook";
 import { Button } from "react-bootstrap";
-
+import FacebookLogin from 'react-facebook-login';
+import { FACEBOOK_TOKEN, http, setStore, USER_LOGIN } from "../util/tools";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -18,21 +19,34 @@ export default function Login() {
       password: "",
     },
     validationSchema: Yup.object().shape({
-      email: Yup.string().required("Email không được bỏ trống").email("Email không đúng định dạng !"),
+      email: Yup.string()
+        .required("Email không được bỏ trống")
+        .email("Email không đúng định dạng !"),
       password: Yup.string()
         .required("Password không được bỏ trống")
         .min(1, "pass từ 6 - 32 ký tự !!"),
     }),
-    
+
     onSubmit: (values) => {
-      console.log({values})
+      console.log({ values });
       // const action = loginApi(values);
       dispatch(loginApi(values));
     },
   });
-
-  const {touched,errors,values,handleBlur,handleChange,handleSubmit} = frm;
-  if (getStore(ACCESS_TOKEN) !== null ) {
+  const responseFacebook =async (response)=>{
+    console.log(response.accessToken)
+    setStore(FACEBOOK_TOKEN,response.accessToken)
+    try {
+      const result = await http.post('/Users/facebooklogin',response.accessToken);
+      setStore(USER_LOGIN,result.data.content)
+      console.log(result.data.content)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const { touched, errors, values, handleBlur, handleChange, handleSubmit } =
+    frm;
+  if (getStore(ACCESS_TOKEN) !== null) {
     return <Navigate to="/" />;
   }
   return (
@@ -40,8 +54,8 @@ export default function Login() {
       <div className="login">Login</div>
       <div className="row justify-content-center align-items-center">
         <div className="col-lg-6 col-md-8 col-sm-8 col-10">
-          <form  onSubmit={handleSubmit} >
-            <div  className="form-group">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
               <h3>Email</h3>
               <input
                 type="text"
@@ -70,7 +84,6 @@ export default function Login() {
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                
               />
               {errors.password && touched.password ? (
                 <span className="text-danger">{errors.password}</span>
@@ -85,7 +98,8 @@ export default function Login() {
               <button
                 className="btn btn-primary login-text rounded-5"
                 type="submit"
-              >LOGIN
+              >
+                LOGIN
               </button>
             </div>
           </form>
@@ -94,7 +108,15 @@ export default function Login() {
             href="https://www.facebook.com/"
           >
             <i className="fa-brands fa-facebook"></i>
-            <button className="facebook-text"><LoginFaceBook/></button>
+            <button className="facebook-text">
+              <FacebookLogin
+                appId="526234602835316"
+                autoLoad={true}
+                fields="name,email,picture"
+                // onClick={componentClicked}
+                callback={responseFacebook}
+              />
+            </button>
           </a>
         </div>
       </div>

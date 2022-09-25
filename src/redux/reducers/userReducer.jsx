@@ -15,6 +15,7 @@ import { Navigate } from "react-router-dom";
 
 const initialState = {
   userLogin: getStoreJson(USER_LOGIN), // có thể null hoặc object
+  facebookToken:getStore('facebookToken')
 };
 const userReducer = createSlice({
   name: "userReducer",
