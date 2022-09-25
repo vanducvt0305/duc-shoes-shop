@@ -43,8 +43,9 @@ export const config = {
   },
   ACCESS_TOKEN: "accessToken",
   USER_LOGIN: "userLogin",
-  CART:"cart",
-  ORDER_DETAIL:'orderDetail'
+  CART: "cart",
+  ORDER_DETAIL: "orderDetail",
+  FACEBOOK_TOKEN: "facebookToken",
 };
 
 export const {
@@ -55,9 +56,10 @@ export const {
   setStoreJson,
   getStoreJson,
   ACCESS_TOKEN,
+  FACEBOOK_TOKEN,
   USER_LOGIN,
   CART,
-  ORDER_DETAIL
+  ORDER_DETAIL,
 } = config;
 
 // Cấu hình request cho tất cả Api - response cho tất cả trả về:

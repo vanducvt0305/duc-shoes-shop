@@ -6,6 +6,7 @@ import { loginApi } from "../redux/reducers/userReducer";
 import { ACCESS_TOKEN, getStore } from "../util/tools";
 import { Navigate } from "react-router-dom";
 import LoginFaceBook from "../components/LoginFaceBook";
+import { Button } from "react-bootstrap";
 
 
 export default function Login() {
@@ -88,13 +89,14 @@ export default function Login() {
               </button>
             </div>
           </form>
-          <LoginFaceBook/>
           <a
             className="d-flex justify-content-center my-4 facebook-block"
             href="https://www.facebook.com/"
           >
             <i className="fa-brands fa-facebook"></i>
-            <span className="facebook-text">Continue with Facebook</span>
+            <button className="facebook-text" onClick={()=>{
+              <LoginFaceBook/>
+            }}>Continue with Facebook</button>
           </a>
         </div>
       </div>
