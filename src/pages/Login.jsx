@@ -94,9 +94,7 @@ export default function Login() {
             href="https://www.facebook.com/"
           >
             <i className="fa-brands fa-facebook"></i>
-            <button className="facebook-text" onClick={()=>{
-              <LoginFaceBook/>
-            }}>Continue with Facebook</button>
+            <button className="facebook-text"><LoginFaceBook/></button>
           </a>
         </div>
       </div>
