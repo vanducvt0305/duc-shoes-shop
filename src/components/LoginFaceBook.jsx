@@ -2,7 +2,7 @@ import React from "react";
 import FacebookLogin from 'react-facebook-login';
 export default function LoginFaceBook() {
     const responseFacebook = (response)=>{
-
+      console.log(response)
     }
   return (
     <div>
