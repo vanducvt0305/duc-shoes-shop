@@ -108,7 +108,8 @@ http.interceptors.response.use(
       history.push("/");
       return Promise.reject(error);
     }
-    if (error.response.status === 401 || error.response.status === 403) {
+    // if (error.response.status === 401 || error.response.status === 403) {
+      if (error.response.status === 403) {
       alert("Token không hợp lệ !Vui lòng đăng nhập lại!");
       history.push("/login");
       return Promise.reject(error);
