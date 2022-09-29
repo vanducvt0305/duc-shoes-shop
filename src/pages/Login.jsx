@@ -71,7 +71,7 @@ export default function Login() {
               <h3>Password</h3>
               <input
                 className="form-control p-2 my-2 input-style w-100"
-                type="text"
+                type="password"
                 id="password"
                 name="password"
                 placeholder="Password"
