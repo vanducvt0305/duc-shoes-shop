@@ -397,3 +397,21 @@
 .flex-direction{
   flex-direction: column;
 }
+
+
+.fa-solid{
+  position: relative;
+  color: red;
+}
+
+.fa-regular{
+  // top: -60px;
+  position: relative;
+}
+.heart-btn{
+  border: none;
+  position: relative;
+  top: -60px;
+  background-color: #F8F8F8;
+  font-size: 30px;
+}

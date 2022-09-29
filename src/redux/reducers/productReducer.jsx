@@ -9,11 +9,12 @@ import {
 } from "../../util/tools";
 
 const initialState = {
-  arrProduct: [],
+  arrProduct: getStoreJson('arrProduct'),
   productDetail: {},
   productAddtoCart: {},
   arrProductAddtoCart: getStoreJson(CART),
   orderDetail: getStoreJson(ORDER_DETAIL),
+  productsFavorite: [],
 };
 const productReducer = createSlice({
   name: "productReducer",
@@ -21,6 +22,7 @@ const productReducer = createSlice({
   reducers: {
     getProfileAction: (state, action) => {
       state.arrProduct = action.payload;
+      // console.log(state.arrProduct[0])
     },
     getProductDetailAction: (state, action) => {
       state.productDetail = action.payload;
@@ -100,22 +102,40 @@ const productReducer = createSlice({
       let index = action.payload;
       state.arrProductAddtoCart.splice(index, 1);
       setStoreJson(CART, state.arrProductAddtoCart);
-      if(state.arrProductAddtoCart.length ===0){
+      if (state.arrProductAddtoCart.length === 0) {
         localStorage.removeItem("cart");
-        localStorage.removeItem('orderDetail')
-        window.location.reload()
+        localStorage.removeItem("orderDetail");
+        window.location.reload();
       }
     },
-  },
-  extraReducers: (builder) => {
-    // builder.addCase(order.fulfilled,(state,action)=>{
-    //   state.test = "Test Text";
-    //   console.log(state.test);
-    // })
+    ProductsFavoriteAction: (state, action) => {
+      action.payload.map((prodF)=>{
+        state.productsFavorite.push(prodF.id);       
+      })
+    },
+    setProductsFavorite:(state,action)=>{
+      state.arrProduct[action.payload-1].productsFavorite = true
+      // setStoreJson('arrProduct',state.arrProduct)
+    },
+    handleHeart:(state,action)=>{
+    //  if(state.arrProduct[action.payload-1].productsFavorite = false){
+    //   state.arrProduct[action.payload-1].productsFavorite = true
+    //   console.log(state.arrProduct[action.payload-1].productsFavorite )
+    //  }else{
+    //   state.arrProduct[action.payload-1].productsFavorite = false
+    //  }
+  
+    // console.log(state.arrProduct)
+     
+    }
   },
 });
 
 export const {
+  handleHeart,
+  setProductsFavorite,
+  setArrNewProduct,
+  ProductsFavoriteAction,
   decreaseBtnArr,
   deleteOrder,
   increaseBtnArr,
@@ -129,12 +149,19 @@ export const {
 } = productReducer.actions;
 
 export default productReducer.reducer;
+
+
 export const getProductApi = () => {
   return async (dispatch) => {
     try {
       const result = await http.get("/Product");
-      const action = getProfileAction(result.data.content);
-      dispatch(action);
+      let newarr =[]
+       result.data.content.map((prod)=>{
+        prod = {...prod,productsFavorite:false}
+        newarr.push(prod);
+        
+      })
+      dispatch(getProfileAction(newarr));
     } catch (error) {
       console.log(error);
     }
@@ -187,13 +214,50 @@ export const orderApi = createAsyncThunk(
   }
 );
 
-export const deleteOrderApi =(orderId)=>{
-
-  return async (dispatch)=>{
-
+export const deleteOrderApi = (orderId) => {
+  return async (dispatch) => {
     try {
-      const result = await http.post('/Users/deleteorder',orderId);
+      const result = await http.post("/Users/deleteorder", orderId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
+export const getProductsFavoriteApi = () => {
+  return async (dispatch) => {
+    try {
+      const result = await http.get("/Users/getproductfavorite");
+      // console.log(result.data.content.productsFavorite)
+      dispatch(ProductsFavoriteAction(result.data.content.productsFavorite));
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
+export const handleLikeHeartApi = (id)=>{
+  return async (dispatch) =>{
+    try {
+      const result = await http.get(`/Users/like?productId=${id.id}`)
+      // console.log(id)
+      dispatch(handleHeart(id))
+      // window.location.reload;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const handleUnLikeHeartApi = (id)=>{
+  return async (dispatch) =>{
+    try {
+      const result = await http.get(`/Users/unlike?productId=${id.id}`)
+      console.log(id)
+      dispatch((handleHeart(id)))
+      // window.location.reload;
     } catch (error) {
       console.log(error)
     }
