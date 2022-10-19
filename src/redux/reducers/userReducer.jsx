@@ -63,7 +63,7 @@ export const getProfileApi = () => {
       dispatch(action);
       setStoreJson(USER_LOGIN, result.data.content);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 };
